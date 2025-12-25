@@ -1,0 +1,221 @@
+---
+/**
+ * NavBar Component
+ * 
+ * @description A responsive navigation bar with CMS-friendly props
+ * @example
+ * <NavBar siteName="My Site" links={navLinks} />
+ */
+
+export interface NavLink {
+  label: string;
+  href: string;
+  active?: boolean;
+}
+
+export interface Props {
+  siteName?: string;
+  logoHref?: string;
+  links?: NavLink[];
+  sticky?: boolean;
+  transparent?: boolean;
+  class?: string;
+}
+
+const {
+  siteName = 'My Site',
+  logoHref = '/',
+  links = [],
+  sticky = false,
+  transparent = false,
+  class: className = ''
+} = Astro.props;
+
+const currentPath = Astro.url.pathname;
+---
+
+<nav
+  class:list={[
+    'nav-bar',
+    { 'nav-bar--sticky': sticky },
+    { 'nav-bar--transparent': transparent },
+    className
+  ]}
+>
+  <div class="nav-bar__container">
+    <!-- Logo / Site Name -->
+    <a href={logoHref} class="nav-bar__logo">
+      <slot name="logo">
+        {siteName}
+      </slot>
+    </a>
+
+    <!-- Mobile Menu Toggle -->
+    <button 
+      class="nav-bar__toggle" 
+      aria-label="Toggle navigation"
+      id="nav-toggle"
+    >
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+
+    <!-- Navigation Links -->
+    <div class="nav-bar__links" id="nav-links">
+      {links.map(link => (
+        <a
+          href={link.href}
+          class:list={[
+            'nav-bar__link',
+            { 'nav-bar__link--active': link.href === currentPath || link.active }
+          ]}
+        >
+          {link.label}
+        </a>
+      ))}
+      
+      <!-- Additional slot for custom links/buttons -->
+      <div class="nav-bar__actions">
+        <slot name="actions" />
+      </div>
+    </div>
+  </div>
+</nav>
+
+<style>
+  .nav-bar {
+    background-color: white;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    padding: 1rem 0;
+    width: 100%;
+    z-index: 100;
+  }
+
+  .nav-bar--sticky {
+    position: sticky;
+    top: 0;
+  }
+
+  .nav-bar--transparent {
+    background-color: transparent;
+    border-bottom-color: transparent;
+  }
+
+  .nav-bar__container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .nav-bar__logo {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #1f2937;
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+
+  .nav-bar__logo:hover {
+    color: #3b82f6;
+  }
+
+  .nav-bar__toggle {
+    display: none;
+    flex-direction: column;
+    gap: 4px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 8px;
+  }
+
+  .nav-bar__toggle span {
+    width: 24px;
+    height: 3px;
+    background-color: #1f2937;
+    border-radius: 2px;
+    transition: all 0.3s;
+  }
+
+  .nav-bar__links {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+  }
+
+  .nav-bar__link {
+    color: #4b5563;
+    text-decoration: none;
+    font-weight: 500;
+    padding: 0.5rem 0;
+    border-bottom: 2px solid transparent;
+    transition: all 0.2s;
+  }
+
+  .nav-bar__link:hover {
+    color: #3b82f6;
+    border-bottom-color: #3b82f6;
+  }
+
+  .nav-bar__link--active {
+    color: #3b82f6;
+    border-bottom-color: #3b82f6;
+  }
+
+  .nav-bar__actions {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  /* Mobile styles */
+  @media (max-width: 768px) {
+    .nav-bar__toggle {
+      display: flex;
+    }
+
+    .nav-bar__links {
+      position: absolute;
+      top: 100%;
+      left: 0;
+      right: 0;
+      background-color: white;
+      flex-direction: column;
+      align-items: stretch;
+      gap: 0;
+      padding: 1rem 1.5rem;
+      border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+      display: none;
+    }
+
+    .nav-bar__links.active {
+      display: flex;
+    }
+
+    .nav-bar__link {
+      padding: 0.75rem 0;
+      border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+    }
+
+    .nav-bar__actions {
+      padding-top: 1rem;
+      border-top: 1px solid rgba(0, 0, 0, 0.1);
+    }
+  }
+</style>
+
+<script>
+  // Mobile menu toggle
+  const toggle = document.getElementById('nav-toggle');
+  const links = document.getElementById('nav-links');
+
+  if (toggle && links) {
+    toggle.addEventListener('click', () => {
+      links.classList.toggle('active');
+    });
+  }
+</script>

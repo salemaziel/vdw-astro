@@ -1,0 +1,9 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(find:*)",
+      "Bash(ls:*)",
+      "Bash(cd /data/data/com.termux/files/home/Code/vdw-astro && mkdir -p .skills/building-with-headless-cms/{scripts,references/{component-organization,framework-guides,git-based-cms,api-based-cms},assets/{component-templates/{astro-button,react-button,vanilla-button,cms-ready-hero,cms-ready-card},cms-configs/{sanity-schema,payload-collections},starter-projects}})"
+    ]
+  }
+}
