@@ -24,3 +24,11 @@ pnpm-debug.log*
 .idea/
 
 .pre-astro/
+
+
+*.diff
+*.html
+
+.letta/
+
+
