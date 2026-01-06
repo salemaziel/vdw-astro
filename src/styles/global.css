@@ -98,16 +98,12 @@ details > summary::-webkit-details-marker {
 	color: var(--vdw-green) !important;
 }
 
-.bg-purple-50 {
+.bg-green-50 {
 	background-color: rgba(40, 167, 69, 0.12) !important;
 }
 
-.text-purple-600 {
+.text-green-600 {
 	color: var(--vdw-green) !important;
-}
-
-.bg-purple-500 {
-	background-color: var(--vdw-green) !important;
 }
 
 .text-pink-300 {
