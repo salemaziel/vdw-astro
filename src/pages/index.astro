@@ -7,146 +7,834 @@ import '../styles/global.css';
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<title>VDW | Astro</title>
-		<meta name="description" content="VDW site powered by Astro." />
+		<title>ViaDelWeb - Websites That Convert</title>
+		<meta
+			name="description"
+			content="ViaDelWeb is a website agency helping businesses launch fast, rank higher, and grow with sites you fully own."
+		/>
+		<meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1" />
+		<meta name="googlebot" content="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1" />
+		<meta name="author" content="ViaDelWeb" />
+		<meta name="theme-color" content="#007bff" />
+		<meta name="color-scheme" content="light" />
+		<meta name="format-detection" content="telephone=no" />
+		<link rel="canonical" href="https://viadelweb.com/" />
+
+		<meta property="og:title" content="ViaDelWeb - Websites That Convert" />
+		<meta
+			property="og:description"
+			content="ViaDelWeb is a website agency helping businesses launch fast, rank higher, and grow with sites you fully own."
+		/>
+		<meta property="og:type" content="website" />
+		<meta property="og:url" content="https://viadelweb.com/" />
+		<meta property="og:site_name" content="ViaDelWeb" />
+		<meta property="og:locale" content="en_US" />
+		<meta property="og:image" content="https://viadelweb.com/public/assets/images/hero-01.png" />
+		<meta property="og:image:alt" content="ViaDelWeb - Websites That Convert" />
+
+		<meta name="twitter:card" content="summary_large_image" />
+		<meta name="twitter:title" content="ViaDelWeb - Websites That Convert" />
+		<meta
+			name="twitter:description"
+			content="ViaDelWeb is a website agency helping businesses launch fast, rank higher, and grow with sites you fully own."
+		/>
+		<meta name="twitter:image" content="https://viadelweb.com/public/assets/images/hero-01.png" />
 
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<link rel="preload" as="image" href="/assets/images/hero-01.png" />
+
+		<script type="application/ld+json">
+			{
+				"@context": "https://schema.org",
+				"@type": "Organization",
+				"@id": "https://viadelweb.com/#organization",
+				"name": "ViaDelWeb",
+				"url": "https://viadelweb.com/",
+				"email": "hello@viadelweb.com"
+			}
+		</script>
 
 		<link rel="preconnect" href="https://fonts.googleapis.com" />
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 		<link
-			href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@500;700;800&display=swap"
+			href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Outfit:wght@500;700;800&display=swap"
 			rel="stylesheet"
 		/>
-
-		<style is:global>
-			::-webkit-scrollbar {
-				width: 8px;
-			}
-			::-webkit-scrollbar-track {
-				background: #0a0a0f;
-			}
-			::-webkit-scrollbar-thumb {
-				background: #333;
-				border-radius: 4px;
-			}
-			::-webkit-scrollbar-thumb:hover {
-				background: #555;
-			}
-
-			.glass {
-				background: rgba(19, 19, 31, 0.7);
-				backdrop-filter: blur(12px);
-				-webkit-backdrop-filter: blur(12px);
-				border: 1px solid rgba(255, 255, 255, 0.05);
-			}
-
-			.glass-card {
-				background: linear-gradient(145deg, rgba(255, 255, 255, 0.03) 0%, rgba(255, 255, 255, 0.01) 100%);
-				border: 1px solid rgba(255, 255, 255, 0.06);
-				transition:
-					transform 0.2s ease,
-					border-color 0.2s ease,
-					box-shadow 0.2s ease;
-			}
-
-			.glass-card:hover {
-				border-color: rgba(0, 123, 255, 0.3);
-				transform: translateY(-3px);
-				box-shadow: 0 10px 40px -10px rgba(0, 123, 255, 0.2);
-			}
-
-			.mesh-bg {
-				position: fixed;
-				inset: 0;
-				z-index: -1;
-				overflow: hidden;
-				background-color: #0a0a0f;
-			}
-
-			.orb {
-				position: absolute;
-				border-radius: 50%;
-				filter: blur(80px);
-				opacity: 0.35;
-				animation: float 20s infinite ease-in-out;
-			}
-
-			.orb-1 {
-				width: 420px;
-				height: 420px;
-				background: #007bff;
-				top: -120px;
-				left: -120px;
-				animation-delay: 0s;
-			}
-			.orb-2 {
-				width: 320px;
-				height: 320px;
-				background: #dc3545;
-				top: 35%;
-				right: -80px;
-				animation-delay: -6s;
-			}
-			.orb-3 {
-				width: 360px;
-				height: 360px;
-				background: #28a745;
-				bottom: -100px;
-				left: 20%;
-				animation-delay: -12s;
-			}
-
-			@keyframes float {
-				0%,
-				100% {
-					transform: translate(0, 0);
-				}
-				33% {
-					transform: translate(30px, -50px);
-				}
-				66% {
-					transform: translate(-20px, 20px);
-				}
-			}
-
-			.text-gradient {
-				background: linear-gradient(to right, #60a5fa, #ffffff);
-				-webkit-background-clip: text;
-				-webkit-text-fill-color: transparent;
-			}
-		</style>
+		<link
+			href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0"
+			rel="stylesheet"
+		/>
 	</head>
 
-	<body class="min-h-screen bg-vdw-dark text-white">
-		<div class="mesh-bg" aria-hidden="true">
-			<div class="orb orb-1"></div>
-			<div class="orb orb-2"></div>
-			<div class="orb orb-3"></div>
-		</div>
+	<body class="bg-grid relative">
+		<!-- Navbar -->
+		<nav id="navbar" class="fixed top-0 w-full z-50 transition-all duration-300 border-b border-transparent">
+			<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+				<div class="flex justify-between items-center h-20">
+					<!-- Logo -->
+					<div class="flex items-center gap-2 cursor-pointer" onclick="window.scrollTo(0,0)">
+						<div
+							class="w-9 h-9 bg-blue-600 rounded-xl flex items-center justify-center text-white font-bold text-xs shadow-lg shadow-black/20"
+						>
+							VDW
+						</div>
+						<span class="font-bold text-xl tracking-tight text-black">ViaDelWeb</span>
+					</div>
 
-		<main class="mx-auto max-w-5xl px-6 py-12">
-			<header class="mb-10">
-				<p class="font-heading text-sm tracking-widest text-white/70">VDW</p>
-				<h1 class="mt-2 font-heading text-4xl sm:text-5xl">
-					<span class="text-gradient">Astro + React + Tailwind</span>
+					<!-- Desktop Links -->
+					<div class="hidden md:flex items-center space-x-8">
+						<a href="#work" class="text-sm font-medium text-gray-600 hover:text-black transition-colors">Work</a>
+						<a href="#services" class="text-sm font-medium text-gray-600 hover:text-black transition-colors">Services</a>
+						<a href="#pricing" class="text-sm font-medium text-gray-600 hover:text-black transition-colors">Pricing</a>
+					</div>
+
+					<!-- CTA & Mobile -->
+					<div class="flex items-center gap-4">
+						<a
+							href="#contact"
+							class="hidden md:inline-flex items-center justify-center px-6 py-2.5 border border-transparent text-sm font-semibold rounded-full text-white bg-blue-600 hover:bg-gray-800 transition-all hover:scale-105 shadow-xl shadow-black/10"
+						>
+							Let's Talk
+						</a>
+						<button
+							class="md:hidden p-2 rounded-lg text-gray-600 hover:bg-gray-100 transition-colors"
+							onclick="document.getElementById('mobile-menu').classList.toggle('hidden')"
+						>
+							<span class="material-symbols-outlined">menu</span>
+						</button>
+					</div>
+				</div>
+			</div>
+
+			<!-- Mobile Menu -->
+			<div
+				id="mobile-menu"
+				class="md:hidden bg-white/95 backdrop-blur-xl border-t border-gray-100 absolute w-full left-0 shadow-2xl hidden"
+			>
+				<div class="px-4 pt-4 pb-6 space-y-2">
+					<a
+						href="#work"
+						class="block px-4 py-3 rounded-xl text-base font-medium text-gray-700 hover:text-black hover:bg-gray-50"
+						onclick="toggleMobileMenu()"
+					>
+						Work
+					</a>
+					<a
+						href="#services"
+						class="block px-4 py-3 rounded-xl text-base font-medium text-gray-700 hover:text-black hover:bg-gray-50"
+						onclick="toggleMobileMenu()"
+					>
+						Services
+					</a>
+					<a
+						href="#pricing"
+						class="block px-4 py-3 rounded-xl text-base font-medium text-gray-700 hover:text-black hover:bg-gray-50"
+						onclick="toggleMobileMenu()"
+					>
+						Pricing
+					</a>
+					<a
+						href="#contact"
+						class="block px-4 py-3 rounded-xl text-base font-medium text-white bg-blue-600 shadow-lg shadow-black/10 text-center mt-4"
+						onclick="toggleMobileMenu()"
+					>
+						Let's Talk
+					</a>
+				</div>
+			</div>
+		</nav>
+
+		<main class="pt-32 pb-16 overflow-hidden">
+			<!-- Hero Section -->
+			<section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center mb-24 reveal active">
+				<div
+					class="inline-flex items-center px-4 py-1.5 rounded-full border border-gray-200 bg-white/50 backdrop-blur-sm text-xs font-semibold text-gray-600 mb-8 shadow-sm"
+				>
+					<span class="relative flex h-2 w-2 mr-2">
+						<span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
+						<span class="relative inline-flex rounded-full h-2 w-2 bg-green-500"></span>
+					</span>
+					Accepting new projects for Oct 2025
+				</div>
+
+				<h1 class="text-5xl md:text-8xl font-bold tracking-tight mb-8 leading-[1.05] text-black">
+					Build Better.<br />
+					<span
+						class="text-transparent bg-clip-text"
+						style="background-image: linear-gradient(90deg, var(--vdw-blue), var(--vdw-red), var(--vdw-green));"
+					>
+						Faster, Smarter.
+					</span>
 				</h1>
-				<p class="mt-3 max-w-2xl text-white/70">
-					Project scaffold is ready. Your previous <code class="text-white/70">index.html</code> is not used by
-					Astro routes.
-				</p>
-			</header>
 
-			<section class="glass rounded-2xl p-6">
-				<div class="flex flex-col gap-2">
-					<h2 class="font-heading text-xl">Next</h2>
-					<ul class="list-disc pl-5 text-sm text-white/70">
-						<li>Edit this page at <code class="text-white/70">src/pages/index.astro</code>.</li>
-						<li>Put static files in <code class="text-white/70">public/</code>.</li>
-						<li>Start dev server: <code class="text-white/70">npm run dev</code>.</li>
-					</ul>
+				<p class="text-xl text-gray-600 mb-10 max-w-2xl mx-auto leading-relaxed">
+					ViaDelWeb is a website agency. We design and build fast, modern websites that look premium, rank well, and
+					help you grow—without lock-ins.
+				</p>
+
+				<div class="flex flex-col sm:flex-row gap-4 justify-center mb-20">
+					<a
+						href="#contact"
+						class="inline-flex items-center justify-center px-8 py-4 text-base font-semibold rounded-full text-white bg-blue-600 hover:bg-gray-800 hover:scale-105 transition-all shadow-xl shadow-black/10"
+					>
+						Start a Project
+					</a>
+					<a
+						href="#work"
+						class="inline-flex items-center justify-center px-8 py-4 border border-gray-200 text-base font-semibold rounded-full text-gray-700 bg-white hover:bg-gray-50 transition-all hover:border-gray-300"
+					>
+						View Our Work
+					</a>
+				</div>
+
+				<!-- Hero Image / Visual -->
+				<div class="relative max-w-5xl mx-auto">
+					<div
+						class="rounded-3xl overflow-hidden shadow-2xl border border-gray-200 bg-gray-100 aspect-video group relative"
+					>
+						<img
+							src="/assets/images/hero-01.png"
+							alt="ViaDelWeb hero image"
+							class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-1000"
+							loading="eager"
+							decoding="async"
+							fetchpriority="high"
+						/>
+
+						<!-- Overlay UI Elements mimicking software -->
+						<div
+							class="absolute top-8 left-8 bg-white/90 backdrop-blur-md p-4 rounded-2xl shadow-lg border border-white/20 transform -rotate-3 hover:rotate-0 transition-transform duration-300 hidden md:block"
+						>
+							<div class="flex items-center gap-3 mb-2">
+								<div
+									class="w-8 h-8 rounded-full bg-blue-100 text-blue-600 flex items-center justify-center"
+								>
+									<span class="material-symbols-outlined text-sm">palette</span>
+								</div>
+								<span class="text-sm font-bold">New Website Launch</span>
+							</div>
+							<div class="h-2 w-32 bg-gray-200 rounded-full overflow-hidden">
+								<div class="h-full w-2/3 bg-blue-500 rounded-full"></div>
+							</div>
+						</div>
+
+						<div
+							class="absolute bottom-8 right-8 bg-black/80 backdrop-blur-md p-4 rounded-2xl shadow-lg border border-white/10 transform rotate-3 hover:rotate-0 transition-transform duration-300 hidden md:block"
+						>
+							<div class="flex items-center gap-3">
+								<div class="flex -space-x-2">
+									<div
+										class="w-8 h-8 rounded-full border-2 border-black bg-white/10 flex items-center justify-center text-white text-[10px] font-bold"
+									>
+										VDW
+									</div>
+									<div
+										class="w-8 h-8 rounded-full border-2 border-black bg-white/10 flex items-center justify-center text-white text-[10px] font-bold"
+									>
+										DEV
+									</div>
+								</div>
+								<span class="text-white text-xs font-medium">Team is editing...</span>
+							</div>
+						</div>
+					</div>
 				</div>
 			</section>
+
+			<!-- Logo Marquee -->
+			<section class="py-12 border-y border-gray-200 bg-white mb-32 overflow-hidden">
+				<div class="max-w-7xl mx-auto px-4 text-center">
+					<p class="text-xs font-bold text-gray-400 uppercase tracking-widest mb-10">
+						Trusted by founders, local businesses, and lean teams
+					</p>
+					<div
+						class="flex flex-wrap justify-center md:justify-between items-center gap-8 md:gap-16 opacity-60 grayscale hover:grayscale-0 transition-all duration-500"
+					>
+						<div class="flex items-center gap-2 text-xl font-bold">
+							<span class="material-symbols-outlined">storefront</span>
+							Local Shops
+						</div>
+						<div class="flex items-center gap-2 text-xl font-bold">
+							<span class="material-symbols-outlined">restaurant</span>
+							Restaurants
+						</div>
+						<div class="flex items-center gap-2 text-xl font-bold">
+							<span class="material-symbols-outlined">shopping_bag</span>
+							E-Commerce
+						</div>
+						<div class="flex items-center gap-2 text-xl font-bold">
+							<span class="material-symbols-outlined">cloud</span>
+							SaaS Teams
+						</div>
+						<div class="flex items-center gap-2 text-xl font-bold">
+							<span class="material-symbols-outlined">groups</span>
+							Creators
+						</div>
+					</div>
+				</div>
+			</section>
+
+			<!-- Services Section -->
+			<section id="services" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-40 reveal active">
+				<div class="flex flex-col md:flex-row justify-between items-end mb-16 gap-8">
+					<div class="max-w-2xl">
+						<h2 class="text-sm font-bold text-blue-600 uppercase tracking-wide mb-3">Our Expertise</h2>
+						<h3 class="text-4xl md:text-5xl font-bold text-black leading-tight">
+							We don't just build websites.<br />We build growth engines.
+						</h3>
+					</div>
+					<a
+						href="#contact"
+						class="hidden md:flex items-center text-sm font-bold border-b border-black pb-1 hover:text-blue-600 hover:border-blue-600 transition-colors"
+					>
+						View Full Capabilities <span class="material-symbols-outlined text-sm ml-2">arrow_forward</span>
+					</a>
+				</div>
+
+				<div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+					<!-- Service 1 -->
+					<div
+						class="group p-8 rounded-[2rem] bg-white border border-gray-100 shadow-sm hover:shadow-xl hover-card relative overflow-hidden"
+					>
+						<div
+							class="w-14 h-14 bg-purple-50 rounded-2xl flex items-center justify-center text-purple-600 mb-8 group-hover:scale-110 transition-transform"
+						>
+							<span class="material-symbols-outlined text-3xl">design_services</span>
+						</div>
+						<h4 class="text-2xl font-bold mb-4">Web Design</h4>
+						<p class="text-gray-500 leading-relaxed mb-8">
+							Modern, mobile-first websites that look premium and guide visitors toward your next best action.
+						</p>
+						<ul class="space-y-3 text-sm font-medium text-gray-600">
+							<li class="flex items-center">
+								<span class="w-1.5 h-1.5 bg-purple-500 rounded-full mr-3"></span>UX &amp; UI
+							</li>
+							<li class="flex items-center">
+								<span class="w-1.5 h-1.5 bg-purple-500 rounded-full mr-3"></span>Landing Pages
+							</li>
+							<li class="flex items-center">
+								<span class="w-1.5 h-1.5 bg-purple-500 rounded-full mr-3"></span>Copy Support
+							</li>
+						</ul>
+					</div>
+
+					<!-- Service 2 -->
+					<div
+						class="group p-8 rounded-[2rem] bg-white border border-gray-100 shadow-sm hover:shadow-xl hover-card relative overflow-hidden"
+					>
+						<div
+							class="w-14 h-14 bg-blue-50 rounded-2xl flex items-center justify-center text-blue-600 mb-8 group-hover:scale-110 transition-transform"
+						>
+							<span class="material-symbols-outlined text-3xl">code_blocks</span>
+						</div>
+						<h4 class="text-2xl font-bold mb-4">SEO &amp; Growth</h4>
+						<p class="text-gray-500 leading-relaxed mb-8">
+							Technical SEO, on-page fundamentals, and performance work that helps you rank and convert.
+						</p>
+						<ul class="space-y-3 text-sm font-medium text-gray-600">
+							<li class="flex items-center">
+								<span class="w-1.5 h-1.5 bg-blue-500 rounded-full mr-3"></span>Core Web Vitals
+							</li>
+							<li class="flex items-center">
+								<span class="w-1.5 h-1.5 bg-blue-500 rounded-full mr-3"></span>On-page SEO
+							</li>
+							<li class="flex items-center">
+								<span class="w-1.5 h-1.5 bg-blue-500 rounded-full mr-3"></span>Analytics Setup
+							</li>
+						</ul>
+					</div>
+
+					<!-- Service 3 -->
+					<div
+						class="group p-8 rounded-[2rem] bg-white border border-gray-100 shadow-sm hover:shadow-xl hover-card relative overflow-hidden"
+					>
+						<div
+							class="w-14 h-14 bg-orange-50 rounded-2xl flex items-center justify-center text-orange-600 mb-8 group-hover:scale-110 transition-transform"
+						>
+							<span class="material-symbols-outlined text-3xl">rocket_launch</span>
+						</div>
+						<h4 class="text-2xl font-bold mb-4">Development</h4>
+						<p class="text-gray-500 leading-relaxed mb-8">
+						Clean builds with modern frameworks—fast, SEO-friendly, and easy to maintain long-term.
+						</p>
+						<ul class="space-y-3 text-sm font-medium text-gray-600">
+							<li class="flex items-center">
+								<span class="w-1.5 h-1.5 bg-orange-500 rounded-full mr-3"></span>Astro &amp; React
+							</li>
+							<li class="flex items-center">
+								<span class="w-1.5 h-1.5 bg-orange-500 rounded-full mr-3"></span>CMS Integration
+							</li>
+							<li class="flex items-center">
+								<span class="w-1.5 h-1.5 bg-orange-500 rounded-full mr-3"></span>Hosting &amp; Deploys
+							</li>
+						</ul>
+					</div>
+				</div>
+			</section>
+
+			<!-- Selected Work (Bento Grid) -->
+			<section id="work" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-40 reveal active">
+				<h2 class="text-sm font-bold text-blue-600 uppercase tracking-wide mb-3">Selected Work</h2>
+				<h3 class="text-4xl md:text-5xl font-bold text-black mb-16">Things we've shipped.</h3>
+
+				<div class="grid grid-cols-1 md:grid-cols-3 gap-6 auto-rows-[400px]">
+					<!-- Project 1 (Large) -->
+					<div class="md:col-span-2 rounded-[2rem] overflow-hidden relative group cursor-pointer bg-gray-100">
+						<img
+							src="/assets/images/portfolio-project-saas-01.png"
+							class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+							alt="SaaS project"
+							loading="lazy"
+							decoding="async"
+						/>
+						<div
+							class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-8"
+						>
+							<span
+								class="text-green-400 font-bold text-sm mb-2 transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300 delay-75"
+							>
+								SaaS
+							</span>
+							<h4
+								class="text-white text-3xl font-bold transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300"
+							>
+								Launch-ready Dashboard
+							</h4>
+						</div>
+					</div>
+
+					<!-- Project 2 (Tall) -->
+					<div class="md:col-span-1 rounded-[2rem] overflow-hidden relative group cursor-pointer bg-gray-100">
+						<img
+							src="/assets/images/portfolio-project-shopify-01.png"
+							class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+							alt="E-commerce project"
+							loading="lazy"
+							decoding="async"
+						/>
+						<div
+							class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-8"
+						>
+							<span
+								class="text-pink-300 font-bold text-sm mb-2 transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300 delay-75"
+							>
+								E-Commerce
+							</span>
+							<h4
+								class="text-white text-2xl font-bold transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300"
+							>
+								Storefront Refresh
+							</h4>
+						</div>
+					</div>
+
+					<!-- Project 3 (Standard) -->
+					<div class="md:col-span-1 rounded-[2rem] overflow-hidden relative group cursor-pointer bg-gray-100">
+						<img
+							src="/assets/images/portfolio-project-localrestaurant-01.png"
+							class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+							alt="Local business project"
+							loading="lazy"
+							decoding="async"
+						/>
+						<div
+							class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center"
+						>
+							<div class="bg-white/10 backdrop-blur-md border border-white/20 px-6 py-3 rounded-full text-white font-bold">
+								View Case Study
+							</div>
+						</div>
+					</div>
+
+					<!-- Project 4 (Wide) -->
+					<div class="md:col-span-2 rounded-[2rem] overflow-hidden relative group cursor-pointer bg-gray-100">
+						<img
+							src="/assets/images/hero-02.png"
+							class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+							alt="Website build"
+							loading="lazy"
+							decoding="async"
+						/>
+						<div
+							class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-8"
+						>
+							<span
+								class="text-orange-300 font-bold text-sm mb-2 transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300 delay-75"
+							>
+								Web Build
+							</span>
+							<h4
+								class="text-white text-3xl font-bold transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300"
+							>
+								High-Performance Landing
+							</h4>
+						</div>
+					</div>
+				</div>
+
+				<div class="mt-12 text-center">
+					<a href="#" class="inline-block md:hidden text-sm font-bold border border-gray-300 px-8 py-3 rounded-full">
+						View All Projects
+					</a>
+				</div>
+			</section>
+
+			<!-- Pricing Section -->
+			<section id="pricing" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-40 reveal active">
+				<div class="bg-black rounded-[3rem] p-8 md:p-20 text-white relative overflow-hidden">
+					<!-- Abstract Background Blobs -->
+					<div
+						class="absolute top-0 right-0 w-[500px] h-[500px] bg-blue-600/30 rounded-full blur-[100px] -translate-y-1/2 translate-x-1/2"
+					></div>
+					<div
+						class="absolute bottom-0 left-0 w-[400px] h-[400px] bg-purple-600/20 rounded-full blur-[100px] translate-y-1/3 -translate-x-1/3"
+						style="background-color: rgba(40,167,69,0.2)"
+					></div>
+
+					<div class="relative z-10 flex flex-col md:flex-row gap-16">
+						<div class="md:w-1/2">
+							<h2 class="text-sm font-bold text-gray-400 uppercase tracking-wide mb-4">Pricing</h2>
+							<h3 class="text-4xl md:text-6xl font-bold mb-8">Websites &amp; Growth<br />as a Subscription.</h3>
+							<p class="text-xl text-gray-400 leading-relaxed mb-10 max-w-md">
+							Replace unreliable freelancers for one flat monthly fee. Design, builds, and support—pause or cancel
+								anytime.
+							</p>
+							<div class="flex flex-col gap-4">
+								<div class="flex items-center gap-3">
+									<span class="material-symbols-outlined text-green-400">check_circle</span>
+									<span class="text-lg">Unlimited requests</span>
+								</div>
+								<div class="flex items-center gap-3">
+									<span class="material-symbols-outlined text-green-400">check_circle</span>
+									<span class="text-lg">Average 48h turnaround</span>
+								</div>
+								<div class="flex items-center gap-3">
+									<span class="material-symbols-outlined text-green-400">check_circle</span>
+									<span class="text-lg">No contracts, cancel anytime</span>
+								</div>
+							</div>
+						</div>
+
+						<div class="md:w-1/2">
+							<div class="grid gap-6 md:gap-8">
+								<div
+									class="bg-white/10 backdrop-blur-xl border border-white/20 rounded-[2rem] p-6 hover:bg-white/15 transition-colors"
+								>
+									<div class="flex justify-between items-start mb-4">
+										<div>
+											<h4 class="text-2xl font-bold">Starter</h4>
+											<p class="text-gray-400 text-sm">Best for lean launches</p>
+										</div>
+									</div>
+									<div class="flex items-baseline gap-2 mb-2">
+										<span class="text-4xl font-bold">$2,000</span>
+										<span class="text-gray-400 text-sm">one-time</span>
+									</div>
+									<p class="text-gray-300 text-sm mb-4">or $150/mo</p>
+									<ul class="space-y-2 text-sm text-gray-300">
+										<li class="flex items-start gap-2">
+											<span class="material-symbols-outlined text-green-400 text-base">check_circle</span>
+											<span>Custom Single Page Website</span>
+										</li>
+										<li class="flex items-start gap-2">
+											<span class="material-symbols-outlined text-green-400 text-base">check_circle</span>
+											<span>Mobile-optimized Responsive Design</span>
+										</li>
+										<li class="flex items-start gap-2">
+											<span class="material-symbols-outlined text-green-400 text-base">check_circle</span>
+											<span>Business-Specific Functionality *</span>
+										</li>
+										<li class="flex items-start gap-2">
+											<span class="material-symbols-outlined text-green-400 text-base">check_circle</span>
+											<span>SSL Certificate</span>
+										</li>
+										<li class="flex items-start gap-2">
+											<span class="material-symbols-outlined text-green-400 text-base">check_circle</span>
+											<span>Managed Hosting</span>
+										</li>
+										<li class="flex items-start gap-2">
+											<span class="material-symbols-outlined text-green-400 text-base">check_circle</span>
+											<span>Website Backups</span>
+										</li>
+										<li class="flex items-start gap-2">
+											<span class="material-symbols-outlined text-green-400 text-base">check_circle</span>
+											<span>Essentials SEO</span>
+										</li>
+									</ul>
+								</div>
+
+								<div
+									class="bg-white/10 backdrop-blur-xl border border-white/20 rounded-[2rem] p-6 hover:bg-white/15 transition-colors"
+								>
+									<div class="flex justify-between items-start mb-4">
+										<div>
+											<h4 class="text-2xl font-bold">Business</h4>
+											<p class="text-gray-400 text-sm">For growing teams</p>
+										</div>
+										<span class="bg-white text-black text-xs font-bold px-3 py-1 rounded-full">Most Popular</span>
+									</div>
+									<div class="flex items-baseline gap-2 mb-2">
+										<span class="text-4xl font-bold">$3,500</span>
+										<span class="text-gray-400 text-sm">one-time</span>
+									</div>
+									<p class="text-gray-300 text-sm mb-4">or $250/mo</p>
+									<ul class="space-y-2 text-sm text-gray-300">
+										<li class="flex items-start gap-2">
+											<span class="material-symbols-outlined text-green-400 text-base">check_circle</span>
+											<span>Custom Designed 5-7 Page Website</span>
+										</li>
+										<li class="flex items-start gap-2">
+											<span class="material-symbols-outlined text-green-400 text-base">check_circle</span>
+											<span>Mobile-optimized Responsive Design</span>
+										</li>
+										<li class="flex items-start gap-2">
+											<span class="material-symbols-outlined text-green-400 text-base">check_circle</span>
+											<span>Business-Specific Functionalities *</span>
+										</li>
+										<li class="flex items-start gap-2">
+											<span class="material-symbols-outlined text-green-400 text-base">check_circle</span>
+											<span>Blog Functionality with CMS</span>
+										</li>
+										<li class="flex items-start gap-2">
+											<span class="material-symbols-outlined text-green-400 text-base">check_circle</span>
+											<span>Website Backups</span>
+										</li>
+										<li class="flex items-start gap-2">
+											<span class="material-symbols-outlined text-green-400 text-base">check_circle</span>
+											<span>Google My Business Setup</span>
+										</li>
+										<li class="flex items-start gap-2">
+											<span class="material-symbols-outlined text-green-400 text-base">check_circle</span>
+											<span>Managed Hosting</span>
+										</li>
+										<li class="flex items-start gap-2">
+											<span class="material-symbols-outlined text-green-400 text-base">check_circle</span>
+											<span>Premium SEO</span>
+										</li>
+									</ul>
+								</div>
+
+								<div
+									class="bg-white/10 backdrop-blur-xl border border-white/20 rounded-[2rem] p-6 hover:bg-white/15 transition-colors"
+								>
+									<div class="flex justify-between items-start mb-4">
+										<div>
+											<h4 class="text-2xl font-bold">Advanced</h4>
+											<p class="text-gray-400 text-sm">For ambitious rollouts</p>
+										</div>
+									</div>
+									<div class="flex items-baseline gap-2 mb-2">
+										<span class="text-4xl font-bold">$4,500</span>
+										<span class="text-gray-400 text-sm">one-time</span>
+									</div>
+									<p class="text-gray-300 text-sm mb-4">or $350/mo</p>
+									<ul class="space-y-2 text-sm text-gray-300">
+										<li class="flex items-start gap-2">
+											<span class="material-symbols-outlined text-green-400 text-base">check_circle</span>
+											<span>Custom Designed 8+ Page Website</span>
+										</li>
+										<li class="flex items-start gap-2">
+											<span class="material-symbols-outlined text-green-400 text-base">check_circle</span>
+											<span>Mobile-optimized Responsive Design</span>
+										</li>
+										<li class="flex items-start gap-2">
+											<span class="material-symbols-outlined text-green-400 text-base">check_circle</span>
+											<span>Business-Specific Functionalities *</span>
+										</li>
+										<li class="flex items-start gap-2">
+											<span class="material-symbols-outlined text-green-400 text-base">check_circle</span>
+											<span>Blog Functionality with CMS</span>
+										</li>
+										<li class="flex items-start gap-2">
+											<span class="material-symbols-outlined text-green-400 text-base">check_circle</span>
+											<span>Website Backups</span>
+										</li>
+										<li class="flex items-start gap-2">
+											<span class="material-symbols-outlined text-green-400 text-base">check_circle</span>
+											<span>Google My Business Setup</span>
+										</li>
+										<li class="flex items-start gap-2">
+											<span class="material-symbols-outlined text-green-400 text-base">check_circle</span>
+											<span>Managed Hosting</span>
+										</li>
+										<li class="flex items-start gap-2">
+											<span class="material-symbols-outlined text-green-400 text-base">check_circle</span>
+											<span>Digital Marketing Consultations</span>
+										</li>
+										<li class="flex items-start gap-2">
+											<span class="material-symbols-outlined text-green-400 text-base">check_circle</span>
+											<span>Advanced SEO</span>
+										</li>
+									</ul>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+
+			<!-- Testimonials -->
+			<section class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 mb-40 text-center reveal active">
+				<span class="material-symbols-outlined text-6xl text-gray-200 mb-8">format_quote</span>
+				<h3 class="text-3xl md:text-5xl font-bold text-black mb-10 leading-tight">
+					"ViaDelWeb delivered a clean site, fast. The handoff was smooth, and we finally feel like we own our web
+					presence."
+				</h3>
+				<div class="flex items-center justify-center gap-4">
+					<div
+						class="w-14 h-14 rounded-full object-cover border-2 border-white shadow-md bg-gray-200 flex items-center justify-center font-bold text-gray-700"
+					>
+						VDW
+					</div>
+					<div class="text-left">
+						<div class="font-bold text-black">Happy Client</div>
+						<div class="text-sm text-gray-500">Founder</div>
+					</div>
+				</div>
+			</section>
+
+			<!-- FAQ -->
+			<section class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 mb-40 reveal active">
+				<h2 class="text-3xl font-bold mb-12 text-center">Common Questions</h2>
+				<div class="space-y-4">
+					<details class="group bg-white rounded-2xl border border-gray-200 overflow-hidden">
+						<summary
+							class="flex justify-between items-center p-6 cursor-pointer font-semibold text-lg hover:bg-gray-50 transition-colors list-none"
+						>
+							How does the subscription work?
+							<span class="material-symbols-outlined transition-transform duration-300 group-open:rotate-180">
+								expand_more
+							</span>
+						</summary>
+						<div class="px-6 pb-6 text-gray-600 leading-relaxed">
+							It's simple. Subscribe to a plan and request as many designs as you'd like. We deliver them one by one,
+							typically within 48 hours. You can pause or cancel anytime.
+						</div>
+					</details>
+					<details class="group bg-white rounded-2xl border border-gray-200 overflow-hidden">
+						<summary
+							class="flex justify-between items-center p-6 cursor-pointer font-semibold text-lg hover:bg-gray-50 transition-colors list-none"
+						>
+							Why not just hire a full-time designer?
+							<span class="material-symbols-outlined transition-transform duration-300 group-open:rotate-180">
+								expand_more
+							</span>
+						</summary>
+						<div class="px-6 pb-6 text-gray-600 leading-relaxed">
+							A senior hire costs $100k+ per year, plus benefits. With ViaDelWeb, you get a focused team when you need
+							it, without long-term overhead.
+						</div>
+					</details>
+					<details class="group bg-white rounded-2xl border border-gray-200 overflow-hidden">
+						<summary
+							class="flex justify-between items-center p-6 cursor-pointer font-semibold text-lg hover:bg-gray-50 transition-colors list-none"
+						>
+							What tech stack do you use?
+							<span class="material-symbols-outlined transition-transform duration-300 group-open:rotate-180">
+								expand_more
+							</span>
+						</summary>
+						<div class="px-6 pb-6 text-gray-600 leading-relaxed">
+							We specialize in modern web technologies. Our favorites are React, Astro, Next.js, and Tailwind CSS.
+							This ensures your site is blazingly fast and easy to maintain.
+						</div>
+					</details>
+				</div>
+			</section>
+
+			<!-- Footer -->
+			<footer id="contact" class="bg-gray-50 border-t border-gray-200 pt-24 pb-12">
+				<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+					<div class="flex flex-col md:flex-row justify-between items-start mb-20">
+						<div class="max-w-lg mb-12 md:mb-0">
+							<div class="flex items-center gap-2 mb-8">
+								<div
+									class="w-8 h-8 bg-blue-600 rounded-lg flex items-center justify-center text-white font-bold text-xs"
+								>
+									VDW
+								</div>
+								<span class="font-bold text-xl tracking-tight">ViaDelWeb</span>
+							</div>
+						<h3 class="text-4xl font-bold mb-6">Let’s build something<br />that converts.</h3>
+							<a
+								href="mailto:hello@viadelweb.com"
+								class="text-2xl font-bold text-gray-400 hover:text-black transition-colors border-b-2 border-transparent hover:border-black inline-block pb-1"
+							>
+								hello@viadelweb.com
+							</a>
+						</div>
+
+						<div class="flex gap-16">
+							<div>
+								<h4 class="font-bold mb-6">Sitemap</h4>
+								<ul class="space-y-4 text-gray-500">
+									<li><a href="#work" class="hover:text-black">Work</a></li>
+									<li><a href="#services" class="hover:text-black">Services</a></li>
+									<li><a href="#pricing" class="hover:text-black">Pricing</a></li>
+								</ul>
+							</div>
+							<div>
+								<h4 class="font-bold mb-6">Socials</h4>
+								<ul class="space-y-4 text-gray-500">
+									<li><a href="#" class="hover:text-black">Twitter / X</a></li>
+									<li><a href="#" class="hover:text-black">Instagram</a></li>
+									<li><a href="#" class="hover:text-black">LinkedIn</a></li>
+									<li><a href="#" class="hover:text-black">Dribbble</a></li>
+								</ul>
+							</div>
+						</div>
+					</div>
+
+					<div
+						class="border-t border-gray-200 pt-8 flex flex-col md:flex-row justify-between items-center text-sm text-gray-400"
+					>
+						<p>© 2025 ViaDelWeb. All rights reserved.</p>
+						<div class="flex gap-6 mt-4 md:mt-0">
+							<a href="#" class="hover:text-black">Privacy Policy</a>
+							<a href="#" class="hover:text-black">Terms of Service</a>
+						</div>
+					</div>
+				</div>
+			</footer>
 		</main>
+
+		<!-- Scripts -->
+		<script is:inline>
+			const observerOptions = {
+				threshold: 0.1,
+				rootMargin: '0px',
+			};
+
+			const observer = new IntersectionObserver((entries) => {
+				entries.forEach((entry) => {
+					if (entry.isIntersecting) {
+						entry.target.classList.add('active');
+					}
+				});
+			}, observerOptions);
+
+			document.querySelectorAll('.reveal').forEach((el) => observer.observe(el));
+
+			window.addEventListener('scroll', () => {
+				const navbar = document.getElementById('navbar');
+				if (window.scrollY > 20) {
+					navbar.classList.add('bg-white/80', 'backdrop-blur-xl', 'shadow-sm');
+				} else {
+					navbar.classList.remove('bg-white/80', 'backdrop-blur-xl', 'shadow-sm');
+				}
+			});
+
+			function toggleMobileMenu() {
+				document.getElementById('mobile-menu').classList.toggle('hidden');
+			}
+		</script>
+
+		<!-- Assets used (replace as needed):
+			/assets/images/hero-01.png
+			/assets/images/hero-02.png
+			/assets/images/portfolio-project-saas-01.png
+			/assets/images/portfolio-project-shopify-01.png
+			/assets/images/portfolio-project-localrestaurant-01.png
+		-->
 	</body>
 </html>
